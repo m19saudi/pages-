@@ -3,1642 +3,1814 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#132723">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📄%3C/text%3E%3C/svg%3E">
+<title>Pages الصفحات</title>
 
-<title>Sites المواقع</title>
+<link
+    rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📄%3C/text%3E%3C/svg%3E"
+>
 
 <style>
-*{
-  box-sizing:border-box;
+* {
+    box-sizing: border-box;
 }
 
-:root{
-  --green:#132723;
-  --green2:#1d3a34;
-  --gold:#bda16a;
-  --bg:#f4f2ed;
-  --text:#24332f;
-  --muted:#74817d;
-  --card:#ffffff;
-  --border:#e3dfd6;
-  --danger:#c94a4a;
-  --shadow:0 10px 30px rgba(19,39,35,.08);
+html {
+    scroll-behavior: smooth;
 }
 
-html{
-  scroll-behavior:smooth;
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: Arial, Tahoma, sans-serif;
+
+    background: #f3f1ec;
+    color: #24332f;
 }
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+    background: #132723;
+    color: white;
+
+    padding: 24px 28px;
 
-body{
-  margin:0;
-  min-height:100vh;
-  font-family:Arial,Tahoma,sans-serif;
-  background:
-    radial-gradient(circle at top right,rgba(189,161,106,.08),transparent 30%),
-    var(--bg);
-  color:var(--text);
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
-button,
-input{
-  font:inherit;
+.header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
 }
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
 
-button{
-  -webkit-tap-highlight-color:transparent;
+
 }
+
+.brand h1 {
+    margin: 0;
 
-header{
-  background:
-    linear-gradient(135deg,#10231f 0%,#18332d 55%,#1d3a34 100%);
-  color:#fff;
-  padding:38px 20px 32px;
-  text-align:center;
-  box-shadow:0 6px 30px rgba(0,0,0,.12);
+    font-size: 23px;
+    line-height: 1.25;
+
+    font-weight: 600;
+
+    letter-spacing: 0;
 }
+
+.brand p {
+    margin: 4px 0 0;
 
-.header-inner{
-  max-width:1100px;
-  margin:auto;
+    font-size: 13px;
+    line-height: 1.4;
+
+    color: rgba(255, 255, 255, 0.68);
+
+    font-weight: 400;
+
+    text-align: center;
 }
+
+/* =========================================================
+   HEADER ACTIONS
+========================================================= */
+
+.header-actions {
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
 
-.logo{
-  width:52px;
-  height:52px;
-  margin:0 auto 13px;
-  border-radius:15px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:rgba(255,255,255,.10);
-  border:1px solid rgba(255,255,255,.14);
-  font-size:27px;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
+    flex-shrink: 0;
 }
 
-header h1{
-  margin:0;
-  font-size:29px;
-  font-weight:800;
-  letter-spacing:.1px;
+.header-btn {
+    border-radius: 9px;
+
+    padding: 9px 13px;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
+
+/* =========================================================
+   ADD BUTTON — CONTRASTING
+========================================================= */
 
-header p{
-  margin:8px 0 0;
-  color:#d5e0dc;
-  font-size:14px;
+.header-btn.add {
+    background: #bda16a;
+
+    border: 1px solid #bda16a;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 3px 10px rgba(189, 161, 106, 0.18);
 }
+
+.header-btn.add:hover {
+    background: #c8ad78;
+
+    border-color: #c8ad78;
 
-main{
-  width:min(1100px,100%);
-  margin:36px auto;
-  padding:0 20px 70px;
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 6px 16px rgba(189, 161, 106, 0.25);
 }
+
+/* =========================================================
+   EDIT BUTTON
+========================================================= */
 
-/* TOOLBAR */
+.header-btn.edit,
+.header-btn.finish {
+    background: rgba(255, 255, 255, 0.07);
 
-.toolbar{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-  margin-bottom:22px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    color: white;
 }
+
+.header-btn.edit:hover,
+.header-btn.finish:hover {
+    background: #bda16a;
+
+    border-color: #bda16a;
 
-.status{
-  color:var(--muted);
-  font-size:14px;
+    transform: translateY(-1px);
 }
 
-.toolbar-actions{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
+.header-btn.finish {
+    display: none;
 }
 
-.primary,
-.edit-toggle,
-.finish-edit,
-.secondary{
-  border-radius:12px;
-  padding:11px 17px;
-  cursor:pointer;
-  transition:.2s ease;
-  font-weight:700;
+.editing .header-btn.edit {
+    display: none;
 }
 
-.primary{
-  border:0;
-  background:var(--green);
-  color:#fff;
-  box-shadow:0 6px 17px rgba(19,39,35,.15);
+.editing .header-btn.finish {
+    display: inline-flex;
 }
 
-.primary:hover{
-  background:var(--green2);
-  transform:translateY(-1px);
+.header-btn:active {
+    transform: translateY(0) scale(0.98);
 }
 
-.edit-toggle{
-  border:1px solid var(--green);
-  background:#fff;
-  color:var(--green);
+/* =========================================================
+   CONTENT
+========================================================= */
+
+main {
+    max-width: 1100px;
+
+    margin: 42px auto;
+
+    padding: 0 20px;
 }
+
+/* =========================================================
+   SITE GRID
+========================================================= */
+
+.sites {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill, minmax(220px, 1fr));
 
-.edit-toggle:hover{
-  background:#f2f6f4;
-  transform:translateY(-1px);
+    gap: 18px;
 }
 
-.finish-edit{
-  border:0;
-  background:var(--gold);
-  color:#fff;
-  box-shadow:0 6px 17px rgba(189,161,106,.20);
+/* =========================================================
+   SITE CARD
+========================================================= */
+
+.site {
+    position: relative;
+
+    min-height: 85px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2dfd8;
+
+    border-radius: 14px;
+
+    color: #24332f;
+
+    text-decoration: none;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    box-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.04);
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
 }
+
+.site:hover {
+    background: #bda16a;
+
+    color: #ffffff;
+
+    border-color: #bda16a;
 
-.finish-edit:hover{
-  transform:translateY(-1px);
-  filter:brightness(.97);
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.12);
 }
 
-.secondary{
-  border:1px solid var(--border);
-  background:#fff;
-  color:var(--text);
+.site:active {
+    transform: translateY(-1px) scale(0.98);
+
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
-.secondary:hover{
-  background:#f8f7f4;
+.site:focus-visible {
+    outline: 3px solid #bda16a;
+    outline-offset: 3px;
 }
 
-/* SITE CARDS */
+/* =========================================================
+   EDIT MODE
+========================================================= */
 
-.sites{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
-  gap:18px;
-}
+.edit-card {
+    position: relative;
+
+    min-height: 85px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 9px;
 
-.site-card{
-  position:relative;
-  min-height:108px;
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:18px;
-  box-shadow:0 4px 12px rgba(0,0,0,.045);
-  overflow:hidden;
-  transition:.22s ease;
+    background: #ffffff;
+
+    border: 1px solid #e2dfd8;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.04);
+
+    cursor: grab;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
-.site-card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 14px 30px rgba(19,39,35,.12);
-  border-color:#d5cec0;
+.edit-card:hover {
+    border-color: #bda16a;
+
+    box-shadow:
+        0 7px 18px rgba(0, 0, 0, 0.08);
 }
 
-.site-link{
-  min-height:108px;
-  width:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:22px 20px;
-  color:var(--text);
-  text-decoration:none;
-  font-size:18px;
-  font-weight:750;
-  text-align:center;
-  line-height:1.45;
+.edit-card.dragging {
+    opacity: 0.55;
+    transform: scale(0.98);
 }
+
+.edit-card-content {
+    flex: 1;
 
-.site-card:not(.editing) .site-link:hover{
-  background:linear-gradient(135deg,#fff,#faf8f3);
+    min-width: 0;
+
+    padding: 8px 9px;
+
+    text-align: right;
 }
+
+.edit-card-name {
+    font-size: 16px;
+    font-weight: 600;
 
-/* EDIT MODE */
+    color: #24332f;
 
-.edit-mode .sites{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-.edit-mode .site-card{
-  min-height:76px;
-  display:flex;
-  align-items:center;
-  padding:9px 12px;
-  border-radius:14px;
-  cursor:default;
+.edit-card-url {
+    margin-top: 4px;
+
+    font-size: 11px;
+
+    color: #8a918e;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    direction: ltr;
+    text-align: right;
 }
+
+.edit-actions {
+    display: flex;
+    align-items: center;
 
-.edit-mode .site-card:hover{
-  transform:none;
-  box-shadow:0 4px 12px rgba(0,0,0,.045);
+    gap: 5px;
 }
+
+.edit-icon,
+.delete-icon {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    border: 1px solid #e5e1da;
+
+    background: #faf9f6;
+
+    cursor: pointer;
 
-.edit-mode .site-link{
-  min-height:auto;
-  flex:1;
-  justify-content:flex-start;
-  text-align:right;
-  padding:10px 8px;
-  font-size:16px;
+    font-family: inherit;
+    font-size: 15px;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.15s ease;
 }
 
-.drag-handle{
-  width:38px;
-  height:38px;
-  flex:none;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:10px;
-  color:#9a9b96;
-  font-size:23px;
-  cursor:grab;
-  user-select:none;
+.edit-icon:hover {
+    background: #bda16a;
+    border-color: #bda16a;
+    color: white;
 }
 
-.drag-handle:active{
-  cursor:grabbing;
+.delete-icon {
+    color: #c64747;
+    font-size: 18px;
+    font-weight: 600;
 }
 
-.site-card.dragging{
-  opacity:.45;
+.delete-icon:hover {
+    background: #c64747;
+    border-color: #c64747;
+    color: white;
 }
 
-.edit-actions{
-  display:flex;
-  align-items:center;
-  gap:7px;
-  flex:none;
+.edit-icon:active,
+.delete-icon:active {
+    transform: scale(0.94);
 }
+
+.drag-handle {
+    color: #aaa39a;
+
+    font-size: 18px;
+
+    padding: 5px 2px;
+
+    cursor: grab;
 
-.icon-action{
-  width:39px;
-  height:39px;
-  border-radius:10px;
-  border:1px solid var(--border);
-  background:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  transition:.18s ease;
-  font-size:17px;
+    user-select: none;
 }
+
+/* =========================================================
+   EMPTY / LOADING
+========================================================= */
+
+.empty,
+.loading {
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    padding: 55px 20px;
+
+    color: #858b87;
 
-.icon-action.edit{
-  color:var(--green);
+    font-size: 15px;
 }
 
-.icon-action.edit:hover{
-  background:#eef4f1;
-  border-color:#cbd8d3;
-  transform:translateY(-1px);
+.empty strong {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #24332f;
+
+    font-size: 18px;
 }
+
+/* =========================================================
+   MODALS
+========================================================= */
+
+.modal-overlay {
+    position: fixed;
 
-.icon-action.delete{
-  color:var(--danger);
-  border-color:#f0d6d6;
-  background:#fff8f8;
-  font-size:21px;
-  font-weight:500;
+    inset: 0;
+
+    z-index: 1000;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(19, 39, 35, 0.45);
+
+    backdrop-filter: blur(5px);
 }
 
-.icon-action.delete:hover{
-  background:#fff0f0;
-  border-color:#e8bcbc;
-  transform:translateY(-1px);
+.modal-overlay.show {
+    display: flex;
 }
 
-/* EMPTY */
+.modal {
+    width: 100%;
+    max-width: 430px;
 
-.empty{
-  grid-column:1/-1;
-  text-align:center;
-  padding:72px 20px;
-  background:#fff;
-  border:1px dashed #d7d1c6;
-  border-radius:20px;
-  color:var(--muted);
-}
+    background: #ffffff;
 
-.empty-icon{
-  width:58px;
-  height:58px;
-  margin:0 auto 16px;
-  border-radius:17px;
-  background:#f4f1e9;
-  color:var(--gold);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:27px;
+    border-radius: 16px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.20);
+
+    animation: modalIn 0.18s ease;
 }
 
-.empty h2{
-  margin:0 0 8px;
-  color:var(--text);
-  font-size:20px;
+@keyframes modalIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-.empty p{
-  margin:0;
-  line-height:1.6;
+    gap: 15px;
+
+    margin-bottom: 22px;
 }
+
+.modal-title {
+    margin: 0;
 
-/* MODALS */
+    color: #24332f;
 
-.modal-backdrop{
-  position:fixed;
-  inset:0;
-  background:rgba(10,25,22,.48);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  z-index:1000;
-  backdrop-filter:blur(6px);
+    font-size: 20px;
+    font-weight: 600;
 }
+
+.modal-close {
+    width: 32px;
+    height: 32px;
+
+    border: 0;
+
+    border-radius: 8px;
 
-.modal-backdrop.show{
-  display:flex;
+    background: #f3f1ec;
+
+    color: #68716d;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    transition: 0.2s ease;
 }
 
-.modal{
-  width:min(500px,100%);
-  background:#fff;
-  border-radius:21px;
-  padding:25px;
-  box-shadow:0 25px 80px rgba(0,0,0,.25);
-  animation:modalIn .18s ease;
+.modal-close:hover {
+    background: #bda16a;
+    color: white;
 }
 
-@keyframes modalIn{
-  from{
-    opacity:0;
-    transform:translateY(8px) scale(.98);
-  }
-  to{
-    opacity:1;
-    transform:none;
-  }
+.field {
+    margin-bottom: 16px;
 }
+
+.field label {
+    display: block;
 
-.modal-header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  margin-bottom:8px;
+    margin-bottom: 7px;
+
+    color: #394843;
+
+    font-size: 13px;
+    font-weight: 600;
 }
+
+.field input {
+    width: 100%;
+
+    height: 45px;
+
+    padding: 0 13px;
+
+    border: 1px solid #ddd9d1;
 
-.modal h2{
-  margin:0;
-  font-size:21px;
+    border-radius: 9px;
+
+    background: #faf9f6;
+
+    color: #24332f;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
-.close{
-  border:0;
-  background:#f3f1ec;
-  color:#555;
-  width:36px;
-  height:36px;
-  border-radius:50%;
-  cursor:pointer;
-  font-size:22px;
-  line-height:1;
+.field input:focus {
+    border-color: #bda16a;
+
+    box-shadow:
+        0 0 0 3px rgba(189, 161, 106, 0.15);
+
+    background: white;
 }
 
-.close:hover{
-  background:#eae7df;
+.modal-buttons {
+    display: flex;
+
+    gap: 9px;
+
+    margin-top: 22px;
 }
+
+.modal-btn {
+    flex: 1;
 
-.modal p{
-  color:var(--muted);
-  font-size:14px;
-  line-height:1.65;
-  margin:0 0 18px;
+    height: 43px;
+
+    border-radius: 9px;
+
+    border: 1px solid #ddd9d1;
+
+    font-family: inherit;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
 }
 
-.form-group{
-  margin:16px 0;
+.modal-btn.cancel {
+    background: #f5f3ef;
+    color: #59625e;
 }
 
-.form-group label{
-  display:block;
-  font-weight:700;
-  font-size:14px;
-  margin-bottom:7px;
+.modal-btn.cancel:hover {
+    background: #e9e5dd;
 }
 
-input[type=text],
-input[type=url]{
-  width:100%;
-  border:1px solid #d8d4ca;
-  border-radius:11px;
-  padding:12px 13px;
-  outline:none;
-  background:#fbfaf7;
-  color:var(--text);
-  direction:auto;
+.modal-btn.save {
+    background: #132723;
+    color: white;
+    border-color: #132723;
 }
 
-input:focus{
-  border-color:var(--gold);
-  box-shadow:0 0 0 3px rgba(189,161,106,.15);
+.modal-btn.save:hover {
+    background: #bda16a;
+    border-color: #bda16a;
 }
 
-.form-actions{
-  display:flex;
-  gap:9px;
-  justify-content:flex-start;
-  margin-top:22px;
+.delete-modal {
+    max-width: 390px;
+    text-align: center;
 }
+
+.delete-title {
+    margin: 0 0 10px;
+
+    color: #24332f;
 
-.form-actions button{
-  min-width:100px;
+    font-size: 20px;
 }
+
+.delete-message {
+    margin: 0;
+
+    color: #66706b;
+
+    font-size: 14px;
 
-/* CONFIRM */
+    line-height: 1.7;
+}
 
-.confirm-danger{
-  border:0;
-  background:var(--danger);
-  color:#fff;
-  border-radius:11px;
-  padding:11px 17px;
-  cursor:pointer;
-  font-weight:700;
+.delete-confirm {
+    background: #c64747;
+    color: white;
+    border-color: #c64747;
 }
 
-.confirm-danger:hover{
-  background:#b63f3f;
+.delete-confirm:hover {
+    background: #ad3838;
+    border-color: #ad3838;
 }
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast {
+    position: fixed;
+
+    left: 50%;
+    bottom: 25px;
+
+    z-index: 2000;
+
+    transform: translate(-50%, 20px);
+
+    padding: 11px 17px;
+
+    border-radius: 9px;
+
+    background: #132723;
+    color: white;
+
+    font-size: 13px;
 
-/* TOAST */
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.18);
 
-.toast{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  background:var(--green);
-  color:#fff;
-  padding:12px 17px;
-  border-radius:12px;
-  box-shadow:var(--shadow);
-  display:none;
-  z-index:2000;
-  max-width:360px;
-  line-height:1.5;
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
 }
 
-.toast.show{
-  display:block;
+.toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
 }
 
-.toast.error{
-  background:#8d3030;
+.toast.error {
+    background: #c64747;
 }
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    header {
+        padding: 20px 15px;
+    }
 
-/* MOBILE */
+    .header-inner {
+        flex-direction: column;
 
-@media(max-width:700px){
+        gap: 14px;
 
-  header{
-    padding:31px 16px 27px;
-  }
+        text-align: center;
+    }
 
-  header h1{
-    font-size:25px;
-  }
+    .brand {
+        align-items: center;
+    }
 
-  main{
-    margin:25px auto;
-    padding:0 15px 50px;
-  }
+    .brand h1 {
+        font-size: 21px;
+    }
 
-  .toolbar{
-    flex-direction:column;
-    align-items:stretch;
-  }
+    .brand p {
+        font-size: 12px;
+    }
 
-  .status{
-    text-align:center;
-  }
+    .header-actions {
+        width: 100%;
 
-  .toolbar-actions{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-  }
+        justify-content: center;
+    }
 
-  .toolbar-actions button{
-    width:100%;
-  }
+    .header-btn {
+        padding: 8px 12px;
 
-  .sites{
-    grid-template-columns:1fr;
-    gap:12px;
-  }
+        font-size: 12px;
+    }
 
-  .site-card,
-  .site-link{
-    min-height:82px;
-  }
+    main {
+        margin: 30px auto;
 
-  .edit-mode .site-card{
-    padding:8px;
-  }
+        padding: 0 15px;
+    }
+
+    .sites {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .site {
+        min-height: 70px;
+
+        font-size: 17px;
+    }
+
+    .edit-card {
+        min-height: 70px;
+    }
+}
 
-  .edit-mode .site-link{
-    font-size:15px;
-    padding:8px 5px;
-  }
+@media (max-width: 390px) {
 
-  .drag-handle{
-    width:32px;
-  }
+    .header-actions {
+        gap: 6px;
+    }
 
-  .icon-action{
-    width:36px;
-    height:36px;
-  }
+    .header-btn {
+        padding: 8px 9px;
 
-  .modal{
-    padding:21px;
-  }
+        font-size: 11px;
+    }
 
-  .toast{
-    right:15px;
-    left:15px;
-    bottom:15px;
-    max-width:none;
-  }
+    .brand h1 {
+        font-size: 20px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="header-inner">
-    <div class="logo">📄</div>
-    <h1>Sites المواقع</h1>
-    <p>بوابة المواقع</p>
-  </div>
+<header id="header">
+
+    <div class="header-inner">
+
+        <div class="brand">
+            <h1>المواقع Sites</h1>
+            <p>بوابة المواقع</p>
+        </div>
+
+        <div class="header-actions">
+
+            <button
+                class="header-btn add"
+                id="addBtn"
+                type="button"
+            >
+                ＋ إضافة موقع
+            </button>
+
+            <button
+                class="header-btn edit"
+                id="editBtn"
+                type="button"
+            >
+                ✏️ تعديل المواقع
+            </button>
+
+            <button
+                class="header-btn finish"
+                id="finishBtn"
+                type="button"
+            >
+                ✓ إنهاء التعديل
+            </button>
+
+        </div>
+
+    </div>
+
 </header>
+
 
 <main>
 
-  <div class="toolbar">
-
-    <div class="status" id="status">
-      جاري تحميل المواقع…
+    <div
+        class="sites"
+        id="sites"
+    >
+        <div class="loading">
+            جاري تحميل المواقع…
+        </div>
     </div>
-
-    <div class="toolbar-actions">
-
-      <button class="primary" id="addBtn">
-        ＋ إضافة موقع
-      </button>
-
-      <button class="edit-toggle" id="editBtn">
-        ✏️ تعديل المواقع
-      </button>
-
-      <button class="finish-edit" id="finishBtn" style="display:none">
-        ✓ إنهاء التعديل
-      </button>
-
-    </div>
-
-  </div>
-
-  <div id="sites" class="sites"></div>
 
 </main>
 
 
-<!-- ADD / EDIT SITE MODAL -->
+<!-- ADD / EDIT MODAL -->
 
-<div class="modal-backdrop" id="siteModal">
+<div
+    class="modal-overlay"
+    id="siteModal"
+>
 
-  <div class="modal">
+    <div class="modal">
 
-    <div class="modal-header">
-      <h2 id="modalTitle">إضافة موقع</h2>
-      <button class="close" id="closeModal">×</button>
+        <div class="modal-header">
+
+            <h2
+                class="modal-title"
+                id="modalTitle"
+            >
+                إضافة موقع
+            </h2>
+
+            <button
+                class="modal-close"
+                id="modalClose"
+                type="button"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <form id="siteForm">
+
+            <div class="field">
+
+                <label for="siteName">
+                    اسم الموقع
+                </label>
+
+                <input
+                    id="siteName"
+                    type="text"
+                    placeholder="مثال: الحرمين"
+                    autocomplete="off"
+                    required
+                >
+
+            </div>
+
+            <div class="field">
+
+                <label for="siteUrl">
+                    رابط الموقع
+                </label>
+
+                <input
+                    id="siteUrl"
+                    type="url"
+                    placeholder="https://example.com"
+                    autocomplete="url"
+                    required
+                >
+
+            </div>
+
+            <div class="modal-buttons">
+
+                <button
+                    class="modal-btn cancel"
+                    id="cancelBtn"
+                    type="button"
+                >
+                    إلغاء
+                </button>
+
+                <button
+                    class="modal-btn save"
+                    type="submit"
+                >
+                    حفظ
+                </button>
+
+            </div>
+
+        </form>
+
     </div>
-
-    <p id="modalSubtitle">
-      أدخل اسم الموقع والرابط.
-    </p>
-
-    <div class="form-group">
-      <label for="siteName">اسم الموقع</label>
-      <input
-        id="siteName"
-        type="text"
-        maxlength="80"
-        placeholder="مثال: دليل العمرة"
-      >
-    </div>
-
-    <div class="form-group">
-      <label for="siteUrl">الرابط</label>
-      <input
-        id="siteUrl"
-        type="url"
-        maxlength="500"
-        placeholder="https://example.com"
-      >
-    </div>
-
-    <div class="form-actions">
-      <button class="primary" id="saveSite">
-        حفظ
-      </button>
-
-      <button class="secondary" id="cancelModal">
-        إلغاء
-      </button>
-    </div>
-
-  </div>
 
 </div>
 
 
-<!-- DELETE CONFIRMATION -->
+<!-- DELETE MODAL -->
 
-<div class="modal-backdrop" id="deleteModal">
+<div
+    class="modal-overlay"
+    id="deleteModal"
+>
 
-  <div class="modal">
+    <div class="modal delete-modal">
 
-    <div class="modal-header">
-      <h2>حذف الموقع؟</h2>
-      <button class="close" id="closeDelete">×</button>
+        <h2 class="delete-title">
+            حذف الموقع؟
+        </h2>
+
+        <p
+            class="delete-message"
+            id="deleteMessage"
+        >
+            هل أنت متأكد من حذف هذا الموقع؟
+        </p>
+
+        <div class="modal-buttons">
+
+            <button
+                class="modal-btn cancel"
+                id="deleteCancel"
+                type="button"
+            >
+                إلغاء
+            </button>
+
+            <button
+                class="modal-btn delete-confirm"
+                id="deleteConfirm"
+                type="button"
+            >
+                حذف
+            </button>
+
+        </div>
+
     </div>
-
-    <p id="deleteText">
-      سيتم حذف الموقع من القائمة.
-    </p>
-
-    <div class="form-actions">
-
-      <button class="confirm-danger" id="confirmDelete">
-        حذف
-      </button>
-
-      <button class="secondary" id="cancelDelete">
-        إلغاء
-      </button>
-
-    </div>
-
-  </div>
 
 </div>
 
 
-<div class="toast" id="toast"></div>
+<div
+    class="toast"
+    id="toast"
+></div>
 
 
-<script type="module">
+<script>
 
-import {
-  initializeApp
-} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
-
-import {
-  getDatabase,
-  ref,
-  onValue,
-  set
-} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-database.js";
-
-
-/* -----------------------------------------
-   ELEMENTS
------------------------------------------ */
-
-const $ = id => document.getElementById(id);
-
-const sitesEl = $("sites");
-const statusEl = $("status");
-
-const addBtn = $("addBtn");
-const editBtn = $("editBtn");
-const finishBtn = $("finishBtn");
-
-const siteModal = $("siteModal");
-const deleteModal = $("deleteModal");
-
-const siteName = $("siteName");
-const siteUrl = $("siteUrl");
-
-let db = null;
-
-let sitesData = [];
-
-let editMode = false;
-
+let sites = [];
 let editingIndex = null;
-
 let deletingIndex = null;
+let draggedIndex = null;
+
+const header =
+    document.getElementById("header");
+
+const sitesContainer =
+    document.getElementById("sites");
+
+const addBtn =
+    document.getElementById("addBtn");
+
+const editBtn =
+    document.getElementById("editBtn");
+
+const finishBtn =
+    document.getElementById("finishBtn");
+
+const siteModal =
+    document.getElementById("siteModal");
+
+const deleteModal =
+    document.getElementById("deleteModal");
+
+const siteForm =
+    document.getElementById("siteForm");
+
+const siteName =
+    document.getElementById("siteName");
+
+const siteUrl =
+    document.getElementById("siteUrl");
+
+const modalTitle =
+    document.getElementById("modalTitle");
+
+const modalClose =
+    document.getElementById("modalClose");
+
+const cancelBtn =
+    document.getElementById("cancelBtn");
+
+const deleteCancel =
+    document.getElementById("deleteCancel");
+
+const deleteConfirm =
+    document.getElementById("deleteConfirm");
+
+const deleteMessage =
+    document.getElementById("deleteMessage");
+
+const toast =
+    document.getElementById("toast");
 
 
-/* -----------------------------------------
-   TOAST
------------------------------------------ */
+/* =========================================================
+   LOAD
+========================================================= */
 
-function toast(message, error=false){
+async function loadSites() {
 
-  const t = $("toast");
+    try {
 
-  t.textContent = message;
+        const response =
+            await fetch("/api/sites", {
+                method: "GET",
+                cache: "no-store"
+            });
 
-  t.className = "toast show";
+        if (!response.ok) {
+            throw new Error(
+                "تعذر تحميل المواقع"
+            );
+        }
 
-  if(error){
-    t.classList.add("error");
-  }
+        const data =
+            await response.json();
 
-  clearTimeout(window.__toast);
+        sites =
+            Array.isArray(data.sites)
+                ? data.sites
+                : [];
 
-  window.__toast = setTimeout(()=>{
-    t.className = "toast";
-  },3000);
-}
+        renderNormal();
 
+    } catch (error) {
 
-/* -----------------------------------------
-   MODALS
------------------------------------------ */
+        console.error(error);
 
-function showModal(id){
-  $(id).classList.add("show");
-}
+        sitesContainer.innerHTML = `
+            <div class="empty">
+                <strong>تعذر تحميل المواقع</strong>
+                تحقق من اتصال الموقع بالخادم.
+            </div>
+        `;
 
-function hideModal(id){
-  $(id).classList.remove("show");
-}
-
-
-/* -----------------------------------------
-   LOAD FIREBASE CONFIG
------------------------------------------ */
-
-async function boot(){
-
-  try{
-
-    const response = await fetch("/api/config", {
-      cache:"no-store"
-    });
-
-    if(!response.ok){
-      throw new Error("تعذر تحميل إعدادات Firebase.");
+        showToast(
+            "تعذر تحميل المواقع",
+            true
+        );
     }
+}
 
-    const config = await response.json();
 
-    if(
-      !config.apiKey ||
-      !config.projectId ||
-      !config.databaseURL
-    ){
-      throw new Error("إعدادات Firebase غير مكتملة.");
+/* =========================================================
+   SAVE
+========================================================= */
+
+async function saveSites() {
+
+    try {
+
+        const response =
+            await fetch("/api/sites", {
+
+                method: "PUT",
+
+                headers: {
+                    "Content-Type":
+                        "application/json"
+                },
+
+                body: JSON.stringify({
+                    sites: sites
+                })
+
+            });
+
+        if (!response.ok) {
+
+            let message =
+                "تعذر حفظ التغييرات";
+
+            try {
+
+                const data =
+                    await response.json();
+
+                if (data.error) {
+                    message = data.error;
+                }
+
+            } catch (_) {}
+
+            throw new Error(message);
+        }
+
+        return true;
+
+    } catch (error) {
+
+        console.error(error);
+
+        showToast(
+            error.message ||
+            "تعذر حفظ التغييرات",
+            true
+        );
+
+        return false;
     }
-
-    const app = initializeApp(config);
-
-    db = getDatabase(app, config.databaseURL);
-
-    listenToSites();
-
-  }catch(error){
-
-    console.error(error);
-
-    statusEl.textContent = "تعذر الاتصال بقاعدة البيانات.";
-
-    toast(
-      error.message || "حدث خطأ أثناء التشغيل.",
-      true
-    );
-
-  }
-
 }
 
 
-/* -----------------------------------------
-   FIREBASE LISTENER
------------------------------------------ */
+/* =========================================================
+   NORMAL VIEW
+========================================================= */
 
-function listenToSites(){
+function renderNormal() {
 
-  const sitesRef = ref(db,"sites");
+    sitesContainer.innerHTML = "";
 
-  onValue(
-    sitesRef,
+    if (!sites.length) {
 
-    snapshot => {
+        sitesContainer.innerHTML = `
+            <div class="empty">
+                <strong>لا توجد مواقع بعد</strong>
+                اضغط «＋ إضافة موقع» لإضافة أول موقع.
+            </div>
+        `;
 
-      const value = snapshot.val();
-
-      sitesData =
-        Array.isArray(value)
-          ? value.filter(Boolean)
-          : [];
-
-      render();
-
-    },
-
-    error => {
-
-      console.error(error);
-
-      statusEl.textContent =
-        "تعذر تحميل المواقع.";
-
-      toast(
-        "تحقق من Firebase وقواعد Realtime Database.",
-        true
-      );
-
-    }
-  );
-
-}
-
-
-/* -----------------------------------------
-   RENDER
------------------------------------------ */
-
-function render(){
-
-  if(editMode){
-
-    renderEditMode();
-
-  }else{
-
-    renderNormalMode();
-
-  }
-
-}
-
-
-/* -----------------------------------------
-   NORMAL MODE
------------------------------------------ */
-
-function renderNormalMode(){
-
-  document.body.classList.remove("edit-mode");
-
-  addBtn.style.display = "block";
-
-  editBtn.style.display = "block";
-
-  finishBtn.style.display = "none";
-
-  sitesEl.className = "sites";
-
-  statusEl.textContent =
-    sitesData.length
-      ? `${sitesData.length} موقع`
-      : "لا توجد مواقع حالياً";
-
-  sitesEl.innerHTML = "";
-
-  if(!sitesData.length){
-
-    sitesEl.innerHTML = `
-      <div class="empty">
-
-        <div class="empty-icon">＋</div>
-
-        <h2>لا توجد مواقع بعد</h2>
-
-        <p>
-          اضغط «إضافة موقع» لإضافة أول موقع إلى البوابة.
-        </p>
-
-      </div>
-    `;
-
-    return;
-  }
-
-
-  sitesData.forEach(site => {
-
-    const card = document.createElement("div");
-
-    card.className = "site-card";
-
-
-    const link = document.createElement("a");
-
-    link.className = "site-link";
-
-    link.href = site.url;
-
-    link.target = "_blank";
-
-    link.rel = "noopener noreferrer";
-
-    link.textContent = site.name;
-
-
-    card.appendChild(link);
-
-    sitesEl.appendChild(card);
-
-  });
-
-}
-
-
-/* -----------------------------------------
-   EDIT MODE
------------------------------------------ */
-
-function renderEditMode(){
-
-  document.body.classList.add("edit-mode");
-
-  addBtn.style.display = "block";
-
-  editBtn.style.display = "none";
-
-  finishBtn.style.display = "block";
-
-  sitesEl.className = "sites";
-
-  statusEl.textContent =
-    sitesData.length
-      ? `${sitesData.length} موقع — يمكنك التعديل أو السحب لإعادة الترتيب`
-      : "وضع التعديل — القائمة فارغة";
-
-  sitesEl.innerHTML = "";
-
-
-  if(!sitesData.length){
-
-    sitesEl.innerHTML = `
-      <div class="empty">
-
-        <div class="empty-icon">＋</div>
-
-        <h2>القائمة فارغة</h2>
-
-        <p>
-          يمكنك إضافة موقع جديد باستخدام زر «إضافة موقع».
-        </p>
-
-      </div>
-    `;
-
-    return;
-
-  }
-
-
-  sitesData.forEach((site,index) => {
-
-    const card = document.createElement("div");
-
-    card.className = "site-card editing";
-
-    card.draggable = true;
-
-    card.dataset.index = index;
-
-
-    /* DRAG */
-
-    const drag = document.createElement("div");
-
-    drag.className = "drag-handle";
-
-    drag.textContent = "☷";
-
-    drag.title = "اسحب لإعادة الترتيب";
-
-
-    /* LINK */
-
-    const link = document.createElement("a");
-
-    link.className = "site-link";
-
-    link.href = site.url;
-
-    link.target = "_blank";
-
-    link.rel = "noopener noreferrer";
-
-    link.textContent = site.name;
-
-
-    /* ACTIONS */
-
-    const actions = document.createElement("div");
-
-    actions.className = "edit-actions";
-
-
-    const editButton = document.createElement("button");
-
-    editButton.className = "icon-action edit";
-
-    editButton.title = "تعديل";
-
-    editButton.setAttribute("aria-label","تعديل");
-
-    editButton.textContent = "✏️";
-
-
-    const deleteButton = document.createElement("button");
-
-    deleteButton.className = "icon-action delete";
-
-    deleteButton.title = "حذف";
-
-    deleteButton.setAttribute("aria-label","حذف");
-
-    deleteButton.textContent = "×";
-
-
-    editButton.onclick = event => {
-
-      event.preventDefault();
-
-      event.stopPropagation();
-
-      openSiteModal(index);
-
-    };
-
-
-    deleteButton.onclick = event => {
-
-      event.preventDefault();
-
-      event.stopPropagation();
-
-      openDeleteModal(index);
-
-    };
-
-
-    actions.appendChild(editButton);
-
-    actions.appendChild(deleteButton);
-
-
-    card.appendChild(drag);
-
-    card.appendChild(link);
-
-    card.appendChild(actions);
-
-
-    /* DRAG EVENTS */
-
-    card.addEventListener("dragstart",() => {
-
-      card.classList.add("dragging");
-
-    });
-
-
-    card.addEventListener("dragend",async () => {
-
-      card.classList.remove("dragging");
-
-      await saveOrderFromDOM();
-
-    });
-
-
-    card.addEventListener("dragover",event => {
-
-      event.preventDefault();
-
-      const dragging =
-        sitesEl.querySelector(".dragging");
-
-      if(!dragging || dragging === card){
         return;
-      }
-
-      const rect =
-        card.getBoundingClientRect();
-
-      const after =
-        event.clientY >
-        rect.top + rect.height / 2;
-
-      sitesEl.insertBefore(
-        dragging,
-        after ? card.nextSibling : card
-      );
-
-    });
-
-
-    sitesEl.appendChild(card);
-
-  });
-
-}
-
-
-/* -----------------------------------------
-   ENTER EDIT MODE
------------------------------------------ */
-
-function enterEditMode(){
-
-  editMode = true;
-
-  render();
-
-}
-
-
-/* -----------------------------------------
-   EXIT EDIT MODE
------------------------------------------ */
-
-async function exitEditMode(){
-
-  await saveOrderFromDOM();
-
-  editMode = false;
-
-  render();
-
-  toast("تم إنهاء التعديل.");
-
-}
-
-
-/* -----------------------------------------
-   SAVE ORDER
------------------------------------------ */
-
-async function saveOrderFromDOM(){
-
-  if(!editMode){
-    return true;
-  }
-
-  const cards =
-    [...sitesEl.querySelectorAll(".site-card")];
-
-  if(!cards.length){
-    return true;
-  }
-
-
-  const reordered =
-    cards.map(card =>
-      sitesData[Number(card.dataset.index)]
-    );
-
-
-  if(
-    JSON.stringify(reordered) ===
-    JSON.stringify(sitesData)
-  ){
-
-    return true;
-
-  }
-
-
-  sitesData = reordered;
-
-
-  return await saveSites(false);
-
-}
-
-
-/* -----------------------------------------
-   SAVE FIREBASE
------------------------------------------ */
-
-async function saveSites(showMessage=true){
-
-  if(!db){
-
-    toast(
-      "Firebase غير متصل.",
-      true
-    );
-
-    return false;
-
-  }
-
-
-  try{
-
-    await set(
-      ref(db,"sites"),
-      sitesData.length
-        ? sitesData
-        : null
-    );
-
-
-    if(showMessage){
-      toast("تم حفظ التغييرات.");
     }
 
+    sites.forEach(site => {
 
-    return true;
+        const link =
+            document.createElement("a");
 
-  }catch(error){
+        link.className = "site";
 
-    console.error(error);
+        link.href = site.url;
 
-    toast(
-      "تعذر الحفظ: " +
-      (error.message || "تحقق من Firebase."),
-      true
-    );
+        link.target = "_blank";
 
-    return false;
+        link.rel =
+            "noopener noreferrer";
 
-  }
+        link.textContent =
+            site.name;
 
+        sitesContainer.appendChild(link);
+    });
 }
 
 
-/* -----------------------------------------
-   ADD / EDIT MODAL
------------------------------------------ */
+/* =========================================================
+   EDIT VIEW
+========================================================= */
 
-function openSiteModal(index=null){
+function renderEdit() {
 
-  editingIndex = index;
+    sitesContainer.innerHTML = "";
+
+    if (!sites.length) {
+
+        sitesContainer.innerHTML = `
+            <div class="empty">
+                <strong>لا توجد مواقع</strong>
+                أضف موقعاً جديداً من زر «＋ إضافة موقع».
+            </div>
+        `;
+
+        return;
+    }
+
+    sites.forEach((site, index) => {
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "edit-card";
+
+        card.draggable = true;
+
+        card.dataset.index = index;
+
+        card.addEventListener(
+            "dragstart",
+            () => {
+
+                draggedIndex = index;
+
+                card.classList.add(
+                    "dragging"
+                );
+            }
+        );
+
+        card.addEventListener(
+            "dragend",
+            () => {
+
+                card.classList.remove(
+                    "dragging"
+                );
+
+                draggedIndex = null;
+            }
+        );
+
+        card.addEventListener(
+            "dragover",
+            event => {
+
+                event.preventDefault();
+
+                if (
+                    draggedIndex === null ||
+                    draggedIndex === index
+                ) {
+                    return;
+                }
+
+                const draggedSite =
+                    sites[draggedIndex];
+
+                sites.splice(
+                    draggedIndex,
+                    1
+                );
+
+                sites.splice(
+                    index,
+                    0,
+                    draggedSite
+                );
+
+                draggedIndex = index;
+
+                renderEdit();
+            }
+        );
 
 
-  if(index === null){
+        const handle =
+            document.createElement("div");
 
-    $("modalTitle").textContent =
-      "إضافة موقع";
+        handle.className =
+            "drag-handle";
 
-    $("modalSubtitle").textContent =
-      "أدخل اسم الموقع والرابط.";
+        handle.textContent =
+            "⋮⋮";
+
+
+        const content =
+            document.createElement("div");
+
+        content.className =
+            "edit-card-content";
+
+
+        const name =
+            document.createElement("div");
+
+        name.className =
+            "edit-card-name";
+
+        name.textContent =
+            site.name;
+
+
+        const url =
+            document.createElement("div");
+
+        url.className =
+            "edit-card-url";
+
+        url.textContent =
+            site.url;
+
+
+        content.appendChild(name);
+
+        content.appendChild(url);
+
+
+        const actions =
+            document.createElement("div");
+
+        actions.className =
+            "edit-actions";
+
+
+        const edit =
+            document.createElement("button");
+
+        edit.type = "button";
+
+        edit.className =
+            "edit-icon";
+
+        edit.textContent =
+            "✎";
+
+        edit.title =
+            "تعديل الموقع";
+
+
+        edit.addEventListener(
+            "click",
+            event => {
+
+                event.stopPropagation();
+
+                openEditModal(index);
+            }
+        );
+
+
+        const remove =
+            document.createElement("button");
+
+        remove.type = "button";
+
+        remove.className =
+            "delete-icon";
+
+        remove.textContent =
+            "×";
+
+        remove.title =
+            "حذف الموقع";
+
+
+        remove.addEventListener(
+            "click",
+            event => {
+
+                event.stopPropagation();
+
+                openDeleteModal(index);
+            }
+        );
+
+
+        actions.appendChild(edit);
+
+        actions.appendChild(remove);
+
+
+        card.appendChild(handle);
+
+        card.appendChild(content);
+
+        card.appendChild(actions);
+
+
+        sitesContainer.appendChild(card);
+    });
+}
+
+
+/* =========================================================
+   EDIT MODE
+========================================================= */
+
+function enterEditMode() {
+
+    header.classList.add(
+        "editing"
+    );
+
+    renderEdit();
+}
+
+
+async function exitEditMode() {
+
+    const saved =
+        await saveSites();
+
+    if (!saved) {
+        return;
+    }
+
+    header.classList.remove(
+        "editing"
+    );
+
+    renderNormal();
+
+    showToast(
+        "تم حفظ التغييرات"
+    );
+}
+
+
+/* =========================================================
+   ADD
+========================================================= */
+
+function openAddModal() {
+
+    editingIndex = null;
+
+    modalTitle.textContent =
+        "إضافة موقع";
 
     siteName.value = "";
 
     siteUrl.value = "";
 
-  }else{
+    siteModal.classList.add(
+        "show"
+    );
 
-    $("modalTitle").textContent =
-      "تعديل الموقع";
+    setTimeout(
+        () => siteName.focus(),
+        50
+    );
+}
 
-    $("modalSubtitle").textContent =
-      "عدّل اسم الموقع أو الرابط ثم اضغط حفظ.";
+
+/* =========================================================
+   EDIT
+========================================================= */
+
+function openEditModal(index) {
+
+    editingIndex = index;
+
+    const site =
+        sites[index];
+
+    modalTitle.textContent =
+        "تعديل الموقع";
 
     siteName.value =
-      sitesData[index].name;
+        site.name || "";
 
     siteUrl.value =
-      sitesData[index].url;
+        site.url || "";
 
-  }
+    siteModal.classList.add(
+        "show"
+    );
 
-
-  showModal("siteModal");
-
-  setTimeout(()=>{
-    siteName.focus();
-  },100);
-
+    setTimeout(
+        () => siteName.focus(),
+        50
+    );
 }
 
 
-/* -----------------------------------------
-   SAVE SITE
------------------------------------------ */
+/* =========================================================
+   SUBMIT
+========================================================= */
 
-async function saveSite(){
+async function submitSite(event) {
 
-  const name =
-    siteName.value.trim();
+    event.preventDefault();
 
-  let url =
-    siteUrl.value.trim();
+    const name =
+        siteName.value.trim();
+
+    const url =
+        siteUrl.value.trim();
 
 
-  if(!name){
+    if (!name || !url) {
 
-    toast(
-      "أدخل اسم الموقع.",
-      true
+        showToast(
+            "يرجى إدخال اسم الموقع والرابط",
+            true
+        );
+
+        return;
+    }
+
+
+    if (
+        !url.startsWith("http://") &&
+        !url.startsWith("https://")
+    ) {
+
+        showToast(
+            "يجب أن يبدأ الرابط بـ https:// أو http://",
+            true
+        );
+
+        return;
+    }
+
+
+    const wasEditing =
+        editingIndex !== null;
+
+
+    if (!wasEditing) {
+
+        sites.push({
+            name,
+            url
+        });
+
+    } else {
+
+        sites[editingIndex] = {
+            name,
+            url
+        };
+    }
+
+
+    closeSiteModal();
+
+
+    if (
+        header.classList.contains(
+            "editing"
+        )
+    ) {
+
+        renderEdit();
+
+    } else {
+
+        renderNormal();
+    }
+
+
+    const saved =
+        await saveSites();
+
+    if (saved) {
+
+        showToast(
+            wasEditing
+                ? "تم تحديث الموقع"
+                : "تمت إضافة الموقع"
+        );
+    }
+}
+
+
+/* =========================================================
+   DELETE
+========================================================= */
+
+function openDeleteModal(index) {
+
+    deletingIndex = index;
+
+    const site =
+        sites[index];
+
+    deleteMessage.textContent =
+        `هل أنت متأكد من حذف «${site.name}»؟`;
+
+    deleteModal.classList.add(
+        "show"
+    );
+}
+
+
+async function confirmDelete() {
+
+    if (deletingIndex === null) {
+        return;
+    }
+
+    sites.splice(
+        deletingIndex,
+        1
     );
 
-    siteName.focus();
+    deletingIndex = null;
 
-    return;
-
-  }
-
-
-  if(!url){
-
-    toast(
-      "أدخل الرابط.",
-      true
+    deleteModal.classList.remove(
+        "show"
     );
 
-    siteUrl.focus();
+    renderEdit();
 
-    return;
+    const saved =
+        await saveSites();
 
-  }
+    if (saved) {
+
+        showToast(
+            "تم حذف الموقع"
+        );
+    }
+}
 
 
-  if(!/^https?:\/\//i.test(url)){
+/* =========================================================
+   MODALS
+========================================================= */
 
-    url = "https://" + url;
+function closeSiteModal() {
 
-  }
-
-
-  try{
-
-    new URL(url);
-
-  }catch{
-
-    toast(
-      "الرابط غير صحيح.",
-      true
+    siteModal.classList.remove(
+        "show"
     );
 
-    siteUrl.focus();
-
-    return;
-
-  }
-
-
-  const newSite = {
-    name,
-    url
-  };
-
-
-  if(editingIndex === null){
-
-    sitesData.push(newSite);
-
-  }else{
-
-    sitesData[editingIndex] =
-      newSite;
-
-  }
-
-
-  const saved =
-    await saveSites(false);
-
-
-  if(saved){
-
-    hideModal("siteModal");
-
-    toast(
-      editingIndex === null
-        ? "تمت إضافة الموقع."
-        : "تم تعديل الموقع."
-    );
+    siteForm.reset();
 
     editingIndex = null;
-
-    render();
-
-  }
-
 }
 
 
-/* -----------------------------------------
-   DELETE
------------------------------------------ */
+function closeDeleteModal() {
 
-function openDeleteModal(index){
+    deleteModal.classList.remove(
+        "show"
+    );
 
-  deletingIndex = index;
-
-  $("deleteText").textContent =
-    `سيتم حذف «${sitesData[index].name}» نهائياً من القائمة.`;
-
-  showModal("deleteModal");
-
+    deletingIndex = null;
 }
 
 
-async function deleteSite(){
+/* =========================================================
+   TOAST
+========================================================= */
 
-  if(deletingIndex === null){
-    return;
-  }
+let toastTimer;
 
+function showToast(
+    message,
+    error = false
+) {
 
-  const index =
-    deletingIndex;
+    clearTimeout(toastTimer);
 
+    toast.textContent =
+        message;
 
-  sitesData.splice(index,1);
+    toast.classList.toggle(
+        "error",
+        error
+    );
 
-  deletingIndex = null;
+    toast.classList.add(
+        "show"
+    );
 
-
-  const saved =
-    await saveSites(false);
-
-
-  hideModal("deleteModal");
-
-
-  if(saved){
-
-    toast("تم حذف الموقع.");
-
-    render();
-
-  }
-
+    toastTimer =
+        setTimeout(
+            () => {
+                toast.classList.remove(
+                    "show"
+                );
+            },
+            2600
+        );
 }
 
 
-/* -----------------------------------------
-   BUTTON EVENTS
------------------------------------------ */
+/* =========================================================
+   EVENTS
+========================================================= */
 
-addBtn.onclick = () => {
+addBtn.addEventListener(
+    "click",
+    openAddModal
+);
 
-  openSiteModal(null);
+editBtn.addEventListener(
+    "click",
+    enterEditMode
+);
 
-};
+finishBtn.addEventListener(
+    "click",
+    exitEditMode
+);
 
+siteForm.addEventListener(
+    "submit",
+    submitSite
+);
 
-editBtn.onclick = () => {
+modalClose.addEventListener(
+    "click",
+    closeSiteModal
+);
 
-  enterEditMode();
+cancelBtn.addEventListener(
+    "click",
+    closeSiteModal
+);
 
-};
+deleteCancel.addEventListener(
+    "click",
+    closeDeleteModal
+);
 
-
-finishBtn.onclick = () => {
-
-  exitEditMode();
-
-};
-
-
-$("saveSite").onclick = saveSite;
-
-
-$("cancelModal").onclick = () => {
-
-  hideModal("siteModal");
-
-};
-
-
-$("closeModal").onclick = () => {
-
-  hideModal("siteModal");
-
-};
-
-
-$("confirmDelete").onclick = deleteSite;
-
-
-$("cancelDelete").onclick = () => {
-
-  hideModal("deleteModal");
-
-};
-
-
-$("closeDelete").onclick = () => {
-
-  hideModal("deleteModal");
-
-};
-
-
-/* -----------------------------------------
-   OUTSIDE CLICK
------------------------------------------ */
+deleteConfirm.addEventListener(
+    "click",
+    confirmDelete
+);
 
 siteModal.addEventListener(
-  "click",
-  event => {
+    "click",
+    event => {
 
-    if(event.target === event.currentTarget){
-
-      hideModal("siteModal");
-
+        if (
+            event.target === siteModal
+        ) {
+            closeSiteModal();
+        }
     }
-
-  }
 );
-
 
 deleteModal.addEventListener(
-  "click",
-  event => {
+    "click",
+    event => {
 
-    if(event.target === event.currentTarget){
-
-      hideModal("deleteModal");
-
+        if (
+            event.target === deleteModal
+        ) {
+            closeDeleteModal();
+        }
     }
-
-  }
 );
-
-
-/* -----------------------------------------
-   KEYBOARD
------------------------------------------ */
-
-siteName.addEventListener(
-  "keydown",
-  event => {
-
-    if(event.key === "Enter"){
-
-      siteUrl.focus();
-
-    }
-
-  }
-);
-
-
-siteUrl.addEventListener(
-  "keydown",
-  event => {
-
-    if(event.key === "Enter"){
-
-      saveSite();
-
-    }
-
-  }
-);
-
 
 document.addEventListener(
-  "keydown",
-  event => {
+    "keydown",
+    event => {
 
-    if(event.key === "Escape"){
+        if (
+            event.key === "Escape"
+        ) {
 
-      hideModal("siteModal");
+            closeSiteModal();
 
-      hideModal("deleteModal");
-
+            closeDeleteModal();
+        }
     }
-
-  }
 );
 
 
-/* -----------------------------------------
+/* =========================================================
    START
------------------------------------------ */
+========================================================= */
 
-boot();
+loadSites();
 
 </script>
 
